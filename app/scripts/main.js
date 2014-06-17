@@ -2,14 +2,18 @@
 
 // CALLING PARSE CONSTRUCTORS ///////////////////////////////////////////
 
-//creates a default inputs view using the first photo from the collection
+//creates a default input view using the first photo from the collection
 photos.fetch().done(function(){
+	
 	defaultInputView = new InputView({model: photos.first() });
 	
-})
+	photos.each(function(photos){
+		defaultGalleryView = new GalleryView({model: photos});
+	});
+});
 
-//defines defaultInputsView so that it can be called by constructors and functions
 var defaultInputView;
+var defaultGalleryView;
 
 //////////////////////////////////////////////////////////////////////////
 console.log('main.js file loaded');

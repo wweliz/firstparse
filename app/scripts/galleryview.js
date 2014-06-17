@@ -6,21 +6,25 @@ var GalleryView = Parse.View.extend({
 
 	galleryTemplate: _.template($('.gallery-template').text()),
 
-	events: {'click' : 'showInputView'},
+	events: {'click' : 'renderInputView'},
 
 	initialize: function(){
+		//appends the gallery-view div with the gallery-template elements
 		$('.gallery-view').append(this.el);
+		//calls the render function
 		this.render();
 	},
 
 	render: function(){
 		var renderedTemplate = this.galleryTemplate(this.model.attributes);
 		this.$el.html(renderedTemplate);
+		return this;
 	},
 
-	showInputView: function(){
+	renderInputView: function(){
 		//anInputView.remove();
-		anInputView = new InputView({model: this.model});
+		//anInputView = new InputView({model: this.model});
+		new InputView({model: this.model});
 	}
 });
 

@@ -14,16 +14,13 @@ var InputView = Parse.View.extend({
 	},
 
 	initialize: function(){
-		//creates a new gallery view
-		new GalleryView({model: photo});
-
-		//appends the input-view div with the input-template elements????
+		//appends the input-view div with the input-template elements
 		$('.input-view').append(this.el);
-		//calls the renderPhoto function
-		this.renderPhoto();
+		//calls the render function
+		this.render();
 	},
 
-	renderPhoto: function(){
+	render: function(){
 		var renderedTemplate = this.photoTemplate(this.model.attributes);
 		this.$el.html(renderedTemplate);
 		return this;
@@ -33,13 +30,10 @@ var InputView = Parse.View.extend({
 		var imgVal = $('.URL-input').val();
 		var captionVal = $('.caption-input').val();
 
-		//adds the input values to the collection instance
-		var createdPhoto = photos.add({imgURL: imgVal, caption: captionVal});
+		//adds the input values to the photo parse object
+		var createdPhoto = photo.add({imgURL: imgVal, caption: captionVal});
 		//saves that input value to the server
 		createdPhoto.save();
-			
-		//creates a new view instance with the above collection
-		new GalleryView({model: createdPhoto});
 
 		//calls the resetView function
 		this.resetView();
@@ -52,17 +46,16 @@ var InputView = Parse.View.extend({
 			caption:	this.$el.find('.caption-input').val()
 		});
 
-		//adds the edited photo to the collection
-		photos.add(this.model);
 		//saves the edited photo parse object
 		this.model.save();
-
+			//** parse already "knows" that it needs to add the edited photo to the collection **
+		
 		//calls the resetView function
-		this.resetView();
+		this.resetView();	
 	},
 
 	deletePhoto: function(){
-		//deletes photo instance on the server
+		//deletes photo photo parse object on the server
 		this.model.destroy();
 		//calls the resetView function
 		this.resetView();
