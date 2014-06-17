@@ -11,21 +11,45 @@ body {
 	margin: 0 auto;
 }
 
-.input-view {
-	text-align: center;
+.create-new-image {
+	width: 983px;
+	padding: 10px;
 	margin: 0 auto;
-	background-color: blue;
+	margin-bottom: 10px;
+	border: 1px solid #dcdcdc;
+}
+
+.input-view {
+	width: 983px;
+	padding: 10px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	position: relative;
+	border: 1px solid #dcdcdc;
+
+	& img {width: 100%;}
+
+	& .caption {
+			position: absolute;
+			bottom: 42px;
+			background: rgba(200, 200, 200, 0.5);
+			padding: 6px;
+			margin: 0;
+			width: 971px;
+			color: #2E2E2E;
+	}
 }
 
 .gallery-view {
-	width: 100%;
+	width: 983px;
+	padding: 10px;
 	margin: 0 auto;
 	display: inline-block;
-	background-color: red;
+	border: 1px solid #dcdcdc;
 	
 	& .single-photo {
-		width: 33%;
-		height: 300px;
+		width: 33.333333%;
+		min-height: 300px;
 		overflow: hidden;
 		position: relative;
 		vertical-align: top;
@@ -63,8 +87,8 @@ body {
 	text-decoration: none;
 	text-align: center;
 	text-shadow: 1px 1px 0px #ffffff;
-	padding: 6px;
-	margin: 4px;
+	padding: 4px;
+	margin: 2px;
 
 	&:hover {background-color:#e9e9e9;}
 
@@ -72,4 +96,20 @@ body {
 		position:relative;
 		top:1px;
 	}
+}
+
+input {
+	background-color: #f9f9f9;
+	height: 16px;
+	width: 375px;
+	padding: 4px;
+	margin: 2px;
+	border: 1px solid #dcdcdc;
+
+	&.changed {background: #ffcccc;}
+}
+
+h2 {
+	text-align: left;
+	margin: 8px;
 }

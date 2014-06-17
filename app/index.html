@@ -20,18 +20,23 @@
   <body>
   	<div class="main-container">
   		<div class="create-new-image">
-  			<span class="new-btn button">Create New Photo</span>
+  			<h2>Create A New Image</h2>
   			<input class="URL-input" type="text" placeholder="Add an image URL...">
 				<input class="caption-input" type="text" placeholder="Add a caption...">
+				<span class="new-btn button">Create New Photo</span>
   		</div>
-	    <div class="input-view"></div>
-	    <div class="gallery-view"></div>
+	    <div class="input-view">
+	    	<h2>Edit An Existing Image</h2>
+	    </div>
+	    <div class="gallery-view">
+	    	<h2>Image Gallery</h2>
+	    </div>
   	</div>
 
   	<!-- Scripts -->
   	<script type="text/template" class="input-template">
   		<img src="<%= imgURL %>"/>
-  		<p class="caption"> <%= caption %> </p>
+  		<h3 class="caption"> <%= caption %> </h3>
 			<input class="URL-input" type="text" placeholder="Add an image URL..." value="<%= imgURL %>">
 			<input class="caption-input" type="text" placeholder="Add a caption..." value="<%= caption %>">
 			<span class="save-btn button">Save</span>

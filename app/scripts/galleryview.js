@@ -25,8 +25,8 @@ var GalleryView = Parse.View.extend({
 							//referring to (in this case, the collection name is "photos")
 			//otherwise, you have to use "trigger":
 					//this.collection.trigger('userLoggedIn')
-		//photos.on('add', this.render);
-		//photos.on('change', this.render);
+		photos.on('add', this.render);
+		photos.on('change', this.render);
 	},
 
 	render: function(){
