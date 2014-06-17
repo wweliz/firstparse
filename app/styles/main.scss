@@ -1,0 +1,52 @@
+body {
+	font-family: Arial, Sans-Serif;
+	font-size: 12px;
+	color: #666666;
+	vertical-align: top;
+	margin: 0;
+}
+
+.main-container {
+	width: 1001px;
+	margin: 0 auto;
+}
+
+.input-view {
+	margin: 0 auto;
+	min-height: 500px;
+	background-color: blue;
+}
+
+.gallery-view {
+	width: 100%;
+	margin: 0 auto;
+	display: inline-block;
+	background-color: red;
+}
+
+.single-photo {
+	width: 350px;
+}
+
+.button {
+	box-shadow: inset 0px 0px 1px 0px #ffffff;
+	background-color: #f9f9f9;
+	border-radius: 6px;
+	border: 1px solid #dcdcdc;
+	display: inline-block;
+	color: #666666;
+	height: 12px;
+	line-height: 12px;
+	text-decoration: none;
+	text-align: center;
+	text-shadow: 1px 1px 0px #ffffff;
+	padding: 6px;
+	margin: 4px;
+
+	&:hover {background-color:#e9e9e9;}
+
+	&:active {
+		position:relative;
+		top:1px;
+	}
+}

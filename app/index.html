@@ -18,7 +18,26 @@
   </head>
 
   <body>
-    <div class="hero-unit"></div>
+  	<div class="main-container">
+	    <div class="input-view"></div>
+	    <div class="gallery-view"></div>
+  	</div>
+
+  	<!-- Scripts -->
+  	<script type="text/template" class="input-template">
+  		<img src="http://cachewww.titanbet.com/sites/default/files/germany-portugal.jpg"/>
+  		<img src="<%= imgURL %>"/>
+			<input class="URL-input" type="text" placeholder="Add an image URL..." value="<%= imgURL %>">
+			<input class="caption-input" type="text" placeholder="Add a caption..." value="<%= caption %>">
+			<span class="new-btn button">New Photo</span>
+			<span class="save-btn button">Save</span>
+			<span class="delete-btn button">Delete</span>
+		</script>
+
+		<script type="text/template" class="gallery-template">
+			<img src="<%= imgURL %>"/>
+			<span class="caption"> <%= caption %> </span>
+		</script>
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
@@ -40,6 +59,9 @@
     </script>
 
     <!-- build:js({app,.tmp}) scripts/main.js -->
+    <script src="scripts/parseobject-collection.js"></script>
+    <script src="scripts/inputview.js"></script>
+    <script src="scripts/galleryview.js"></script>
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
 	</body>

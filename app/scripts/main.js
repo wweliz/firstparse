@@ -1,29 +1,15 @@
-Parse.initialize("JTYuoEgHUuH8Gn7pEkFWz02vvm67tBAEKBXmr6Ju", "8n3OIvEj6RZydY0hkkFi4bRVpmEXXMKF6C8Shv3w");
+'use strict';
 
-var Animal = Parse.Object.extend({
-	className: "Animal"
-});
+// CALLING PARSE CONSTRUCTORS ///////////////////////////////////////////
 
-var fido = new Animal;
+//creates a default inputs view using the first photo from the collection
+photos.fetch().done(function(){
+	defaultInputView = new InputView({model: photos.first() });
+	
+})
 
-// fido.save({
-// 	name: "Fido"
-// }).done(function(){
-// 	console.log('it worked!');
-// }).fail(function(){
-// 	console.log('failed!')
-// })
+//defines defaultInputsView so that it can be called by constructors and functions
+var defaultInputView;
 
-animalQuery = new Parse.Query(Animal);
-
-animalQuery.get("QTyVinTyFk", {
-  success: function(animal) {
-  	console.log('animal is', animal)
-    // The object was retrieved successfully.
-  },
-  error: function(object, error) {
-  	console.log('fail')
-    // The object was not retrieved successfully.
-    // error is a Parse.Error with an error code and description.
-  }
-});
+//////////////////////////////////////////////////////////////////////////
+console.log('main.js file loaded');
