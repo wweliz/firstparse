@@ -8,7 +8,6 @@ var InputView = Parse.View.extend({
 	photoTemplate: _.template($('.input-template').text()),
 
 	events: {
-		'click .new-btn'			: 'createPhoto',
 		'click .save-btn'			: 'updatePhoto',
 		'click .delete-btn'		: 'deletePhoto'
 	},
@@ -26,19 +25,6 @@ var InputView = Parse.View.extend({
 		return this;
 	},
 
-	createPhoto: function(){
-		var imgVal = $('.URL-input').val();
-		var captionVal = $('.caption-input').val();
-
-		//adds the input values to the photo parse object
-		var createdPhoto = photo.add({imgURL: imgVal, caption: captionVal});
-		//saves that input value to the server
-		createdPhoto.save();
-
-		//calls the resetView function
-		this.resetView();
-	},
-
 	updatePhoto: function(){
 		//sets the values for the photo being edited
 		this.model.set({
@@ -49,9 +35,6 @@ var InputView = Parse.View.extend({
 		//saves the edited photo parse object
 		this.model.save();
 			//** parse already "knows" that it needs to add the edited photo to the collection **
-		
-		//calls the resetView function
-		this.resetView();	
 	},
 
 	deletePhoto: function(){
@@ -68,6 +51,7 @@ var InputView = Parse.View.extend({
 		//clears the values from the input fields
 		$('.URL-input').val('');
 		$('.caption-input').val('');
+		$('.caption').remove();
 	}
 });
 

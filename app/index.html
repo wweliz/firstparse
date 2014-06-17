@@ -19,6 +19,11 @@
 
   <body>
   	<div class="main-container">
+  		<div class="create-new-image">
+  			<span class="new-btn button">Create New Photo</span>
+  			<input class="URL-input" type="text" placeholder="Add an image URL...">
+				<input class="caption-input" type="text" placeholder="Add a caption...">
+  		</div>
 	    <div class="input-view"></div>
 	    <div class="gallery-view"></div>
   	</div>
@@ -29,7 +34,6 @@
   		<p class="caption"> <%= caption %> </p>
 			<input class="URL-input" type="text" placeholder="Add an image URL..." value="<%= imgURL %>">
 			<input class="caption-input" type="text" placeholder="Add a caption..." value="<%= caption %>">
-			<span class="new-btn button">New Photo</span>
 			<span class="save-btn button">Save</span>
 			<span class="delete-btn button">Delete</span>
 		</script>

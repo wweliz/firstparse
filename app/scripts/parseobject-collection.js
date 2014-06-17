@@ -8,7 +8,7 @@ var Photo = Parse.Object.extend({
 
 	defaults: {
 	  imgURL	: 'http://placehold.it/350x150',
-		caption		: 'no caption'
+		caption	: 'no caption'
   }
 });
 

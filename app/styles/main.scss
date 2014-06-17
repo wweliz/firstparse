@@ -7,13 +7,13 @@ body {
 }
 
 .main-container {
-	width: 1001px;
+	width: 1005px;
 	margin: 0 auto;
 }
 
 .input-view {
+	text-align: center;
 	margin: 0 auto;
-	min-height: 500px;
 	background-color: blue;
 }
 
@@ -22,10 +22,33 @@ body {
 	margin: 0 auto;
 	display: inline-block;
 	background-color: red;
-}
+	
+	& .single-photo {
+		width: 33%;
+		height: 300px;
+		overflow: hidden;
+		position: relative;
+		vertical-align: top;
+		display: inline-block;
+		
+		& img {
+			position: absolute;
+    	margin: auto;
+    	top: 0;
+    	left: 0;
+    	right: 0;
+    	bottom: 0;
+		}
 
-.single-photo {
-	width: 350px;
+		& .caption {
+			position: absolute;
+			bottom: 0;
+			background: rgba(200, 200, 200, 0.5);
+			padding: 6px;	
+			width: 96.3%;
+			color: #2E2E2E;
+		}
+	}
 }
 
 .button {
