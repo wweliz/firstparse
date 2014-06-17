@@ -51,7 +51,7 @@ var InputView = Parse.View.extend({
 		//clears the values from the input fields
 		$('.URL-input').val('');
 		$('.caption-input').val('');
-		$('.caption').remove();
+		//$('.caption').remove();
 	}
 });
 

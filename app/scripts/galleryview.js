@@ -40,7 +40,8 @@ var GalleryView = Parse.View.extend({
 		defaultInputView.remove();
 		//InputView.remove();
 		//creates a new input view using the image you clicked
-		new InputView({model: this.model});
+		// new InputView({model: this.model});
+		defaultInputView = new InputView({model: this.model});
 	}
 });
 
