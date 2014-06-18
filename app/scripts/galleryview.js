@@ -2,6 +2,7 @@
 
 // PARSE GALLERY VIEW ////////////////////////////////////////////////////
 var GalleryView = Parse.View.extend({
+	model: 'photo',
 	collection: 'photos',
 
 	className : 'single-photo',
@@ -25,8 +26,8 @@ var GalleryView = Parse.View.extend({
 							//referring to (in this case, the collection name is "photos")
 			//otherwise, you have to use "trigger":
 					//this.collection.trigger('userLoggedIn')
-		photos.on('add', this.render);
-		photos.on('change', this.render);
+		//photos.on('add', this.render);
+		//photos.on('change', this.render);
 	},
 
 	render: function(){
@@ -38,9 +39,10 @@ var GalleryView = Parse.View.extend({
 	renderInputView: function(){
 		//remove the default input view using the first image from the collection
 		defaultInputView.remove();
-		//InputView.remove();
 		//creates a new input view using the image you clicked
-		// new InputView({model: this.model});
+			//use = to give the new input view the same name as before; if the
+			//function has a different name, the click event will only fire
+			//correctly the first time (the view must exist in order to be removed)
 		defaultInputView = new InputView({model: this.model});
 	}
 });

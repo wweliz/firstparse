@@ -34,7 +34,8 @@ var InputView = Parse.View.extend({
 
 		//saves the edited photo parse object
 		this.model.save();
-			//** parse already "knows" that it needs to add the edited photo to the collection **
+			//parse "knows" to add the edited photo to the collection,
+			//so no need to call that function here
 	},
 
 	deletePhoto: function(){
