@@ -2,8 +2,8 @@
 
 // PARSE GALLERY VIEW ////////////////////////////////////////////////////
 var GalleryView = Parse.View.extend({
-	model: 'photo',
-	collection: 'photos',
+	// model: 'photo',
+	// collection: 'photos',
 
 	className : 'single-photo',
 
@@ -12,22 +12,13 @@ var GalleryView = Parse.View.extend({
 	events: {'click' : 'renderInputView'},
 
 	initialize: function(){
+		this.model.on('change');
 		//appends the gallery-view div with the gallery-template elements
 		$('.gallery-view').append(this.el);
 		//calls the render function
 		this.render();
 
-		//parse doesn't have a "listenTo" so you have to use "on"
-			//Backbone automatically triggers the "add" and "change" events;
-					//this.collection.on('add', this.render);
-					//this.collection.on('change', this.render);
-							//if you don't tell the view which collection it is displaying, you
-							//cannot use this.collection because it doesn't know what that is
-							//referring to (in this case, the collection name is "photos")
-			//otherwise, you have to use "trigger":
-					//this.collection.trigger('userLoggedIn')
-		//photos.on('add', this.render);
-		//photos.on('change', this.render);
+		this.model.on( 'change', this.render.bind(this) );
 	},
 
 	render: function(){

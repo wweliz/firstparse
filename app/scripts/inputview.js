@@ -17,6 +17,7 @@ var InputView = Parse.View.extend({
 		$('.input-view').append(this.el);
 		//calls the render function
 		this.render();
+		
 	},
 
 	render: function(){
