@@ -8,16 +8,16 @@ var InputView = Parse.View.extend({
 	photoTemplate: _.template($('.input-template').text()),
 
 	events: {
-		'click .save-btn'			: 'updatePhoto',
-		'click .delete-btn'		: 'deletePhoto'
+		'click .make-grayscale-btn'	: 'makeGrayscale',
+		'click .save-btn'						: 'updatePhoto',
+		'click .delete-btn'					: 'deletePhoto'
 	},
 
 	initialize: function(){
-		//appends the input-view div with the input-template elements
+		//appends the input-view div with the photoTemplate elements
 		$('.input-view').append(this.el);
 		//calls the render function
 		this.render();
-		
 	},
 
 	render: function(){
@@ -26,17 +26,36 @@ var InputView = Parse.View.extend({
 		return this;
 	},
 
+	makeGrayscale: function(){
+		//creates a canvas instance
+		var canvas = new fabric.Canvas('c');
+
+				//pass the URL of the image through as the first arguement
+		fabric.Image.fromURL('.URL-input', function(img) {
+	  //creates a new fabric image, then adds the grayscale filter
+	  img.filters.push(new fabric.Image.filters.Grayscale());
+	  // apply filters and re-render canvas when done
+	  img.applyFilters(canvas.renderAll.bind(canvas));
+	  // add image onto canvas
+	  canvas.add(img);
+		});
+	},
+
 	updatePhoto: function(){
 		//sets the values for the photo being edited
 		this.model.set({
-			imgVal:		this.$el.find('.URL-input').val(),
+			imgURL:		this.$el.find('.URL-input').val(),
 			caption:	this.$el.find('.caption-input').val()
 		});
 
 		//saves the edited photo parse object
 		this.model.save();
+
+		//calls render so that edited image and caption appear
+		this.render();
 			//parse "knows" to add the edited photo to the collection,
 			//so no need to call that function here
+
 	},
 
 	deletePhoto: function(){
@@ -53,7 +72,7 @@ var InputView = Parse.View.extend({
 		//clears the values from the input fields
 		$('.URL-input').val('');
 		$('.caption-input').val('');
-		//$('.caption').remove();
+		$('.input-view-caption').remove();
 	}
 });
 

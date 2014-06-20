@@ -16,7 +16,8 @@ var Photo = Parse.Object.extend({
   }
 });
 
-var photo = new Photo;
+//no need to create an instance of the Parse oject here;
+//when you add to the collection, a Parse object is automatically created
 
 // PARSE PHOTO COLLECTION ////////////////////////////////////////////////
 var PhotoCollection = Parse.Collection.extend({

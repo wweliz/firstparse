@@ -21,8 +21,8 @@
   	<div class="main-container">
   		<div class="create-new-image">
   			<h2>Create A New Image</h2>
-  			<input class="URL-input" type="text" placeholder="Add an image URL...">
-				<input class="caption-input" type="text" placeholder="Add a caption...">
+  			<input class="new-URL-input" type="text" placeholder="Add an image URL...">
+				<input class="new-caption-input" type="text" placeholder="Add a caption...">
 				<span class="new-btn button">Create New Photo</span>
   		</div>
 	    <div class="input-view">
@@ -36,9 +36,10 @@
   	<!-- Scripts -->
   	<script type="text/template" class="input-template">
   		<img src="<%= imgURL %>"/>
-  		<h3 class="caption"> <%= caption %> </h3>
+  		<h3 class="input-view-caption"> <%= caption %> </h3>
 			<input class="URL-input" type="text" placeholder="Add an image URL..." value="<%= imgURL %>">
 			<input class="caption-input" type="text" placeholder="Add a caption..." value="<%= caption %>">
+			<span class="make-grayscale-btn button">Make Grayscale</span>
 			<span class="save-btn button">Save</span>
 			<span class="delete-btn button">Delete</span>
 		</script>
@@ -71,6 +72,7 @@
     <script src="scripts/parseobject-collection.js"></script>
     <script src="scripts/inputview.js"></script>
     <script src="scripts/galleryview.js"></script>
+    <script src="scripts/fabric.js"></script>
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
 	</body>
