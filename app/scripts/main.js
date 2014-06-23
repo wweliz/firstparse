@@ -1,6 +1,6 @@
 'use strict';
 
-// NEW PHOTO BUTTON FUNCTIONALITY ////////////////////////////////////////
+// CREATE NEW PHOTO BUTTON FUNCTIONALITY /////////////////////////////////
 	//when you click the "Create New Photo" button...
 $('.new-btn').click(function() {
 	//naming the value of the URL and caption input fields so that they can
@@ -12,6 +12,59 @@ $('.new-btn').click(function() {
 	var createdPhoto = photos.add({imgURL: imgVal, caption: captionVal}).last();
 	//saves added input to the server
 	createdPhoto.save();
+
+	//clears the new photo URL and caption fields
+	$('.new-URL-input').val('');
+	$('.new-caption-input').val('');
+});
+
+// CREATE NEW CANVAS-IMAGE BUTTON FUNCTIONALITY /////////////////////////////////
+
+$('.new-canvas-btn').click(function() {
+
+	$('.input-view-image').replaceWith('<canvas id="c" width="983px" min-height="250px"></canvas> ');
+
+	// create a wrapper around native canvas element (with id="c")
+	var canvas = new fabric.Canvas('c');
+
+	//naming the value of the URL and caption input fields so that they can
+	//be passed through the functions below
+	var imgVal = $('.new-URL-input').val();
+	var captionVal = $('.new-caption-input').val();
+
+	//adds an instance of the fabric-image to the canvas
+		//pass the URL of the image through as the first arguement
+	fabric.Image.fromURL(imgVal, function(oImg) {
+	  		canvas.add(oImg);
+	});
+	
+	console.log('canvas is ', canvas);
+
+	var mycanvas = document.getElementById("c");
+
+	console.log('mycanvas is ', mycanvas);
+
+	var myimgURL = mycanvas.toDataURL("image/png");
+
+	console.log('myimgURL is ', myimgURL);
+
+	var newImg = document.createElement("img");
+	newImg.src = myimgURL;
+
+	document.getElementById("placehere").replaceWith('<img src="<%= myimgURL %>"></img>');
+
+	// mycanvas.toBlob(function(blob) {
+	// 	var newImg = document.createElement("img");
+	// 	url = URL.createObjectURL(blob);
+		// newImg.onload = function() { 
+  //           // no longer need to read the blob so it's revoked 
+  //           URL.revokeObjectURL(url); 
+  //       }; 
+  //       newImg.src = url; 
+  //       document.body.appendChild(newImg);
+
+  //         console.log('canvas url is ', url);
+  // });
 
 	//clears the new photo URL and caption fields
 	$('.new-URL-input').val('');

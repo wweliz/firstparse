@@ -14,8 +14,10 @@ var InputView = Parse.View.extend({
 	},
 
 	initialize: function(){
-		//appends the input-view div with the photoTemplate elements
+		//appends the input-view div with everything inside the input-template
+		// script in the HTML
 		$('.input-view').append(this.el);
+
 		//calls the render function
 		this.render();
 	},
@@ -27,18 +29,38 @@ var InputView = Parse.View.extend({
 	},
 
 	makeGrayscale: function(){
-		//creates a canvas instance
+		$('.input-view-image').replaceWith('<canvas id="c" width="983px"></canvas> ');
+
+		// create a wrapper around native canvas element (with id="c")
 		var canvas = new fabric.Canvas('c');
 
-				//pass the URL of the image through as the first arguement
-		fabric.Image.fromURL('.URL-input', function(img) {
-	  //creates a new fabric image, then adds the grayscale filter
-	  img.filters.push(new fabric.Image.filters.Grayscale());
-	  // apply filters and re-render canvas when done
-	  img.applyFilters(canvas.renderAll.bind(canvas));
-	  // add image onto canvas
-	  canvas.add(img);
+		//naming the value of the URL input field so that it can be
+		//passed through the function below
+		//var imgVal = $('.URL-input').val();
+
+		//pass the URL of the image through as the first arguement
+		fabric.Image.fromURL('../images/awesomecat.jpg', function(img) {
+		//creates a new fabric image, then adds the grayscale filter
+		img.filters.push(new fabric.Image.filters.Grayscale());
+		// apply filters and re-render canvas when done
+		img.applyFilters(canvas.renderAll.bind(canvas));
+		// adds image onto canvas
+		canvas.add(img);
 		});
+
+		//saves the canvas instance
+		//canvas.save();
+
+		//calls render so that edited image and caption appear
+		//canvas.render();
+
+
+		//adds the input values to the photo collection
+		//var createdPhoto = photos.add({imgURL: imgVal, caption: captionVal}).last();
+		//saves added input to the server
+		//createdPhoto.save();
+
+		console.log('grayscale button clicked!');
 	},
 
 	updatePhoto: function(){

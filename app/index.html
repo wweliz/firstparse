@@ -19,11 +19,13 @@
 
   <body>
   	<div class="main-container">
+  		<div id="placehere">
   		<div class="create-new-image">
   			<h2>Create A New Image</h2>
   			<input class="new-URL-input" type="text" placeholder="Add an image URL...">
 				<input class="new-caption-input" type="text" placeholder="Add a caption...">
 				<span class="new-btn button">Create New Photo</span>
+				<span class="new-canvas-btn button">Create New Canvas Image</span>
   		</div>
 	    <div class="input-view">
 	    	<h2>Edit An Existing Image</h2>
@@ -35,7 +37,7 @@
 
   	<!-- Scripts -->
   	<script type="text/template" class="input-template">
-  		<img src="<%= imgURL %>"/>
+  		<img class="input-view-image" src="<%= imgURL %>"/>
   		<h3 class="input-view-caption"> <%= caption %> </h3>
 			<input class="URL-input" type="text" placeholder="Add an image URL..." value="<%= imgURL %>">
 			<input class="caption-input" type="text" placeholder="Add a caption..." value="<%= caption %>">
@@ -69,10 +71,10 @@
     </script>
 
     <!-- build:js({app,.tmp}) scripts/main.js -->
+    <script src="scripts/fabric.js"></script>
     <script src="scripts/parseobject-collection.js"></script>
     <script src="scripts/inputview.js"></script>
     <script src="scripts/galleryview.js"></script>
-    <script src="scripts/fabric.js"></script>
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
 	</body>

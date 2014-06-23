@@ -29,6 +29,12 @@ body {
 
 	& img {width: 100%;}
 
+	& .canvas-container, .upper-canvas {
+		width: 100%;
+		border: 1px solid #dcdcdc;
+	}
+
+
 	& .caption {
 			position: absolute;
 			bottom: 42px;
